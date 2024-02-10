@@ -46,7 +46,7 @@ def capture_password():
 
 @app.route('/redirect')
 def external_redirect():
-    return redirect('https://www.google.com')
+    return redirect('https://www.ionos.de/')
 
 if __name__ == '__main__':
     app.run(debug=True)
