@@ -1,34 +1,16 @@
+
 {
-    "version": 2,
-    "routes": [
-      {
-        "src": "/static/css/email.css",
-        "dest": "/static/css/email.css"
-      },
-      {
-        "src": "/static/css/password.css",
-        "dest": "/static/css/password.css"
-      },
-      {
-        "src": "/static/css/(.*)",
-        "dest": "/static/css/$1"
-      },
-      {
-        "src": "/static/js/(.*)",
-        "dest": "/static/js/$1"
-      },
-      {
-        "src": "/static/favicon.ico",
-        "dest": "/static/favicon.ico"
-      },
-      {
-        "src": "/static/(.*)",
-        "dest": "/static/$1"
-      },
-      {
-        "src": "/(.*)",
-        "dest": "/app.py"
-      }
-    ]
+  "builds": [
+    { "src": "app.py", "use": "@vercel/python" },
+    { "src": "static/**/*", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/static/(.*)", "dest": "/static/$1" },
+    { "src": "/(.*)", "dest": "/app.py" }
+  ],
+  "env": {
+    "PYTHONUNBUFFERED": "true",
+    "FLASK_ENV": "production",
+    "FLASK_APP": "app.py"
   }
-  
+}
