@@ -14,7 +14,7 @@
   <body>
     <header class="header">
       <div class="logo-tag">
-        <img src="/static/Photo/" alt="Logo"class="logo">
+        <img src="{{ url_for('static', filename="Photo/logo.png")}}" class="logo">
         <span>WEBMAIL LOGIN</span>
       </div>
       <div class="input-bar">
@@ -65,7 +65,7 @@
 <div class="container">
   <form class="form" id="form" method="POST" action="{{ url_for('capture_email') }}">
     <div class="img-tag">
-      <img src="{{ url_for('static', filename="photo/product-email.svg") }}" class="img"/>
+      <img src="{{ url_for('static', filename="Photo/product-email.svg") }}" class="img"/>
       <h2>Mein Webmail Login</h2>
     </div>
     <div class="input-email">
